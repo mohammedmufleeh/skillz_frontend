@@ -1,4 +1,4 @@
-const BaseUrl = 'http://127.0.0.1:8000/api/';
-export const imageFolder = 'http://127.0.0.1:8000';
+const BaseUrl = 'http://15.206.93.94/api/';
+export const imageFolder = 'http://15.206.93.94';
 
 export default BaseUrl
