@@ -11,7 +11,7 @@ import OTPInput from "otp-input-react";
 import OtpTimer from "otp-timer";
 import DotLoader from "react-spinners/DotLoader";
 import { register, reset } from "../../features/auth/authSlice";
-const baseUrl = "http://15.206.93.94";
+const baseUrl = "https://skillzz.me";
 const validate = (values) => {
   const errors = {};
   if (!values.username) {

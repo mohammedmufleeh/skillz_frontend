@@ -75,7 +75,7 @@ function MyCirtificate() {
                     <td>
                       {status && count >0 ? 
 
-                      <p>Open a PDF file <a href={'http://15.206.93.94'+cirtificate} target='_blank' rel='noopener noreferrer'>Open</a></p>
+                      <p>Open a PDF file <a href={'https://skillzz.me'+cirtificate} target='_blank' rel='noopener noreferrer'>Open</a></p>
                         :
                         <p className='text-danger'>You are Not completed</p>
                     }
