@@ -51,13 +51,12 @@ function Sregister() {
     Form_Data.append("interests", userDetails.interests)
    
     try{
-      axios.post(BaseUrl+'user/register/',Form_Data,).then((response)=>{
+      axios.post(BaseUrl+'user/register/',{"email": userDetails.email,"username": userDetails.username,"mobile": userDetails.mobile,"password": userDetails.password,"interests" :userDetails.interests}).then((response)=>{
         setUserDetails({
           'uername':'',
           'email':'',
           'password':'',
           'mobile':'',
-          
           'interests':'',
           'status':'success',
 
