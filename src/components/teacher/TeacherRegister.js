@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import BaseUrl from '../../BaseUrl';
 import Theader from './Theader';
+import { useNavigate } from 'react-router-dom';
 
 function TeacherRegister() {
 
@@ -17,7 +18,7 @@ function TeacherRegister() {
     'status':'',
 
   });
-
+  const Navigate = useNavigate()
   //states for form validation
   const [fullnameErr, setfullnameErr] = useState({})
   const [emailErr, setEmailErr] = useState({})
@@ -40,6 +41,7 @@ function TeacherRegister() {
 
     const isValid = formValidation()
     if (isValid){
+      console.log("qwertyu")
     const teacherFormData = new FormData();
     teacherFormData.append("full_name", teacherData.full_name)
     teacherFormData.append("email", teacherData.email)
@@ -47,7 +49,8 @@ function TeacherRegister() {
     teacherFormData.append("qualification", teacherData.qualification)
     teacherFormData.append("mobile_no", teacherData.mobile_no)
     teacherFormData.append("skills", teacherData.skills)
-    console.log(teacherFormData)
+
+    console.log(teacherFormData.get('skills'),'jjjjjrgt4g')
 
     try{
       axios.post(baseUrl,teacherFormData).then((response)=>{
@@ -62,6 +65,8 @@ function TeacherRegister() {
 
         })
         console.log(response.data)
+        Navigate('/teacher/login')
+
       })
     }catch(error){
       console.log(error);
@@ -96,14 +101,14 @@ function TeacherRegister() {
       isValid = false
     }
     //mobile validation
-    if (!teacherData.mobile){
-      mobileErr.short_mobile= '*mobile no. is a required field'
+    if (!teacherData.mobile_no){
+      mobileErr.short_mobile_no= '*mobile no. is a required field'
       isValid = false
-    }else if(teacherData.mobile.trim().length != 10){
-      mobileErr.short_mobile= '*enter a valid mobile no.'
+    }else if(teacherData.mobile_no.trim().length != 10){
+      mobileErr.short_mobile_no= '*enter a valid mobile no.'
       isValid = false
-    }else if( /^[a-zA-Z()]+$/.test(teacherData.mobile)){
-      mobileErr.short_mobile= '*enter a valid mobile no.'
+    }else if( /^[a-zA-Z()]+$/.test(teacherData.mobile_no)){
+      mobileErr.short_mobile_no= '*enter a valid mobile no.'
       isValid = false
     }
     //password validation
